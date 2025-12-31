@@ -8,6 +8,8 @@ repo for study for Linux
 - eBPFの勉強
 - 検証用k8sクラスタ作成
     - Node一つ
+- IO多重化
+    - epoll, selectなど
 
 ## サーバーの起動方法
 Multipassを利用する
