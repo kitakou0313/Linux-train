@@ -6,7 +6,10 @@
 	"build": {
     "dockerfile": "Dockerfile.clang",
     "context": "."
-  	}
+  	},
+	"containerEnv": {
+		"TZ": "Asia/Tokyo"
+	}
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
