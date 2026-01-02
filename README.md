@@ -10,6 +10,8 @@ repo for study for Linux
     - Node一つ
 - IO多重化
     - epoll, selectなど
+- C言語アプリのデバッグ方法調査
+    - 構造体の値をprintデバッグする方法
 
 ## サーバーの起動方法
 Multipassを利用する
