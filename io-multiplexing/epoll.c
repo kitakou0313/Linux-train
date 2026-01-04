@@ -120,11 +120,35 @@ int main() {
 
         for (int i = 0; i < num_events; i++)
         {
-            
-        }
-        
+            if (events[i].events & EPOLLIN)
+            {
+                ssize_t received = recv(
+                    sockfd, buffer, sizeof(buffer)-1, 0
+                );
+                if (received > 0)
+                {
+                    /* code */
+                    buffer[received] = '\0';
+                    total_received += received;
 
+                    int print_len = received < 200 ? received : 200;
+                    for (int i = 0; i < print_len; i++) {
+                        putchar(buffer[i]);
+                    }
+
+                }else if(received == 0){
+                    epoll_ctl(epoll_fd, EPOLL_CTL_DEL, sockfd, NULL);
+                }
+                
+            }
+
+            if (events[i].events & EPOLLHUP) {
+                printf("→ EPOLLHUP: Connection hang up\n");
+            }
+            
+            if (events[i].events & EPOLLERR) {
+                printf("→ EPOLLERR: Error condition\n");
+            }   
+        }
     }
-    
-    
 }
